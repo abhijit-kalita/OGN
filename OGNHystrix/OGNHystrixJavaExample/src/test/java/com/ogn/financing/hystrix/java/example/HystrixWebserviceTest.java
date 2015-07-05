@@ -76,6 +76,20 @@ public class HystrixWebserviceTest {
 		in.read(buffer);
 		String contents = new String(buffer);
 		assertTrue(contents.contains("ping"));
-		in.close();
+		in.close();	
+	}
+	
+	@Test
+	public void dashboardTest() throws Exception {
+		ResponseEntity<String> entity = null;
+		for(int i=1;i<5000;i++){
+			System.out.println("Times" +i);
+			 entity = new TestRestTemplate().getForEntity(
+					"http://localhost:7070/employees/1", String.class);	
+			 System.out.println(entity.getStatusCode());
+		}
+		
+		assertThat(entity.getStatusCode(), equalTo(HttpStatus.OK));
+		
 	}
 }
