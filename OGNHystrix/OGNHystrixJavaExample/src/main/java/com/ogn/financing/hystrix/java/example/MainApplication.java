@@ -1,5 +1,6 @@
 package com.ogn.financing.hystrix.java.example;
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
@@ -18,10 +19,10 @@ public class MainApplication {
 	
 	public static void main(String[] args) {
 
-		//SpringApplication.run(MainApplication.class, args);
+		SpringApplication.run(MainApplication.class, args);
 		
-		new SpringApplicationBuilder(MainApplication.class).properties(
-				"spring.config.name:simple").run(args);
+//		new SpringApplicationBuilder(MainApplication.class).properties(
+//				"spring.config.name:simple").run(args);
 	}
 
 }
